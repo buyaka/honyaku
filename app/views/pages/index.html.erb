@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pages</h1>
+<% @pages.each do |page| %>
+<div class="page">
+  <%= link_to image_tag(page.image, :width => 120, :height => 150), edit_book_page_path(@book,page) %>
+  <p><%= page.pagenumber %> |
+    <%= link_to '削除', book_page_path(@book,page), method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <%= link_to '翻訳', translate_path(@book,page)  %></p>
+</div>
+
+<% end %>
+
+<br>
+
+<%= link_to 'New Page', new_book_page_path(@book) %>
