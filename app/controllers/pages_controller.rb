@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  layout "dashboard"
   before_action :set_page, only: [:show, :edit, :update, :destroy, :translate]
   before_action :set_book
 
@@ -25,7 +26,7 @@ class PagesController < ApplicationController
   def translate
   end
 
-  def save_translate 
+  def save_translate
   end
 
   # POST /pages

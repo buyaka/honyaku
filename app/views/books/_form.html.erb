@@ -11,9 +11,13 @@
     </div>
   <% end %>
 
+  <legend>新本</legend>
+  <div class="mui-textfield">
+    <input type="text" placeholder="Input 1" class="mui--is-empty mui--is-dirty">
+  </div>
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => "mui--is-empty mui--is-dirty" %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
@@ -31,3 +35,37 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+<div class="mui-panel">
+  <form>
+  <legend>新本</legend>
+  <div class="mui-textfield">
+    <input type="text" placeholder="Input 1" class="mui--is-empty mui--is-dirty">
+  </div>
+  <div class="mui-textfield">
+    <input type="text" placeholder="Input 2" class="mui--is-empty">
+  </div>
+  <div class="mui-textfield">
+    <textarea placeholder="Textarea" class="mui--is-empty"></textarea>
+  </div>
+  <button type="submit" class="mui-btn mui-btn--raised">Submit</button>
+</form>
+
+  <div class="highlight"><pre><span class="nt">&lt;form&gt;</span>
+  <span class="nt">&lt;legend&gt;</span>Title<span class="nt">&lt;/legend&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mui-textfield"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Input 1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mui-textfield"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Input 2"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mui-textfield"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;textarea</span> <span class="na">placeholder=</span><span class="s">"Textarea"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"mui-btn mui-btn--raised"</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</pre></div>
+
+  <a href="/examples/v1/css-js/forms-basic.html" target="_blank">View in new tab »</a>
+</div>

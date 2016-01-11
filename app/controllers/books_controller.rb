@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  layout "dashboard"
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books

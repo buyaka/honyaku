@@ -1,1 +1,14 @@
-<%= link_to "Books", books_path %>
+<div class="mui-row">
+  <div class="space-top"></div>
+  <h1></h1>
+  <% @books.each do |book| %>
+    <div class="mui-col-md-2">
+      <div class="mui-panel">
+        <%= link_to image_tag(book.cover, :width => 120, :height => 150), book %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<%= link_to '本を追加', new_book_path, :class => "mui-btn mui-btn--raised" %>
