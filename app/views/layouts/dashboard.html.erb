@@ -22,7 +22,18 @@
             <ul class="mui-list--inline mui--text-body2">
               <li><%= link_to '図書を追加', new_book_path %></li>
               <li><%= link_to '図書管', books_path %></li>
-              <li><a href="#">サインアウト</a></li>
+
+              <% if user_signed_in? %>
+                <li>
+                <%= link_to('プロファイル編集', edit_user_registration_path) %>
+                <%= link_to('サインアウト', destroy_user_session_path, :method => :delete) %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to('ログイン', new_user_session_path)  %>
+                  <%= link_to('メンバー登録', new_user_registration_path)  %>
+                </li>
+              <% end %>
             </ul>
           </td>
         </tr>
