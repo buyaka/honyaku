@@ -11,14 +11,19 @@
     <%= link_to 'ページを追加', new_book_page_path(@book), :class => "mui-btn mui-btn--raised" %></br>
     <%= link_to '一括で追加', multi_upload_path(@book), :class => "mui-btn mui-btn--raised" %></br>
     <%= link_to '編集', edit_book_path(@book), :class => "mui-btn mui-btn--raised"  %></br>
+    <%= link_to '削除', book_path(@book), :class => "mui-btn mui-btn--raised", method: :delete, data: { confirm: 'Are you sure?' }  %>
     <%= link_to '戻る', books_path, :class => "mui-btn mui-btn--raised"  %>
   </div>
-  <div class="mui-col-md-10">
+
+  <!-- <div class="mui-col-md-10"> -->
     <% @book.pages.each do |page| %>
+      <div class="mui-col-md-2">
         <div class="mui-panel">
-          <%= link_to '削除', book_page_path(@book,page), :class => "mui-btn mui-btn--raised", method: :delete, data: { confirm: 'Are you sure?' }  %>
           <%= link_to image_tag(page.image, :width => 120, :height => 150), translate_path(@book,page) %>
+          <%= link_to '削除', book_page_path(@book,page), :class => "mui-btn mui-btn--raised", method: :delete, data: { confirm: 'Are you sure?' }  %>
+          <%= link_to '翻訳', translate_path(@book,page), :class => "mui-btn mui-btn--raised"  %>
         </div>
+      </div>
     <% end %>
-  </div>
+  <!-- </div> -->
 </div>
