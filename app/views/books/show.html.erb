@@ -5,9 +5,9 @@
 </div>
 <div class="mui-row">
   <div class="mui-col-md-2 mui--text-center">
-    <%= image_tag(@book.cover, :width => 200, :height => 230) %></br>
-    <%= @book.name %></br>
-    <%= @book.description %></br>
+    <%= image_tag(@book.cover, :width => 200, :height => 250) %></br>
+    <b><%= @book.name %></b></br>
+    <%= truncate(@book.description, length:100) %></br>
     <%= link_to 'ページを追加', new_book_page_path(@book), :class => "mui-btn mui-btn--raised" %></br>
     <%= link_to '一括で追加', multi_upload_path(@book), :class => "mui-btn mui-btn--raised" %></br>
     <%= link_to '編集', edit_book_path(@book), :class => "mui-btn mui-btn--raised"  %></br>
@@ -15,9 +15,9 @@
     <%= link_to '戻る', books_path, :class => "mui-btn mui-btn--raised"  %>
   </div>
 
-  <!-- <div class="mui-col-md-10"> -->
+  <div class="mui-col-md-10">
     <% @book.pages.each do |page| %>
-      <div class="mui-col-md-2">
+      <div class="mui-col-md-2 mui--text-center">
         <div class="mui-panel">
           <%= link_to image_tag(page.image, :width => 120, :height => 150), translate_path(@book,page) %>
           <%= link_to '削除', book_page_path(@book,page), :class => "mui-btn mui-btn--raised", method: :delete, data: { confirm: 'Are you sure?' }  %>
@@ -25,5 +25,5 @@
         </div>
       </div>
     <% end %>
-  <!-- </div> -->
+  </div>
 </div>
