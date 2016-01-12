@@ -27,25 +27,6 @@ class PagesController < ApplicationController
   def translate
   end
 
-  def upload_multi
-    raise page_params[:images].to_yaml
-    if params[:images]
-      params[:images].each { |image|
-        @book.pages.create(image: image, book_id: @book.id, page_number: page.original_filename.to_i)
-      }
-    end
-
-    # raise params[:pages].to_yaml
-    # params[:pages].each{ |page|
-    #
-    #   puts page.original_filename.to_i
-    #   @p = Page.create(image: page)
-    #   @p.book_id = @book.id
-    #   @p.page_number = page.original_filename.to_i
-    #   @p.save
-    # }
-  end
-
   # POST /pages
   # POST /pages.json
   def create

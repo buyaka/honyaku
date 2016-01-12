@@ -1,6 +1,15 @@
 class BooksController < ApplicationController
   layout "dashboard"
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :multi_upload]
+
+  def multi_upload
+    if params[:images]
+      params[:images].each do |image|
+        @book.pages.create(image: image, book_id: @book.id, pagenumber: image.original_filename.to_i)
+      end
+      #notice = 'ページがアップロードされました！'
+    end
+  end
 
   # GET /books
   # GET /books.json
@@ -71,6 +80,7 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
+      # params.permit(images: [])
       params.require(:book).permit(:name, :description, :user_id, :cover, :lang)
     end
 end

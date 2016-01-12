@@ -16,6 +16,7 @@
   <div class="mui-col-md-10">
     <% @book.pages.each do |page| %>
         <div class="mui-panel">
+          <%= link_to '削除', book_page_path(@book,page), :class => "mui-btn mui-btn--raised", method: :delete, data: { confirm: 'Are you sure?' }  %>
           <%= link_to image_tag(page.image, :width => 120, :height => 150), translate_path(@book,page) %>
         </div>
     <% end %>
