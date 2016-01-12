@@ -1,10 +1,10 @@
 <div class="mui-row">
-  <div class="space-top"></div>
   <h1></h1>
   <% @books.each do |book| %>
-    <div class="mui-col-md-2">
+    <div class="mui-col-md-2 mui--text-center">
       <div class="mui-panel">
-        <%= link_to image_tag(book.cover, :width => 120, :height => 150), book %>
+        <%= link_to image_tag(book.cover, :width => 120, :height => 150), book %></br>
+        <%= book.name %>
       </div>
     </div>
   <% end %>

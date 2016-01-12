@@ -2,18 +2,18 @@ module PagesHelper
 
   def prePage(page_id)
     page = Page.where(" id < #{page_id} ").first
-    if page == nil
-      return
+    if page != nil
+      return link_to("<<前へ", translate_path(@book, page))
     end
-    return link_to("<", translate_path(page.book, page))
+    return ""
   end
 
   def nextPage(page_id)
     page = Page.where(" id > #{page_id} ").first
-    if page == nil
-      return
+    if page != nil
+      return link_to("次へ>>", translate_path(@book, page))
     end
-    return link_to(">", translate_path(:book_id => page.book.id, :id => page.id))
+    return ""
   end
 
 end

@@ -3,23 +3,25 @@
     $(".best_in_place").best_in_place();
   });
 </script>
-<p id="notice"><%= notice %></p>
 
-<div class="section group">
-	<div class="col span_1_of_2">
-    <%= image_tag(@page.image, :width => '100%', :height => '100%') %>
-	</div>
-	<div class="col span_1_of_2">
-    <%= best_in_place @page, :content, :path => book_page_path(@book, @page), :as => :textarea, :ok_button => '保存', :cancel_button => 'キャンセル'  %>
-	</div>
+<h1></h1>
+<div class="mui-row">
+  <div class="mui-col-md-5">
+    <%= image_tag(@page.image, :width => '100%', :height => '100%', :class => "mui--z2") %>
+  </div>
+  <div class="mui-col-md-7">
+    <%= best_in_place @page, :content, :path => book_page_path(@book, @page), :as => :textarea, :width => '100%', :height => '100%', :ok_button => '保存', :cancel_button => 'キャンセル'  %>
+  </div>
 </div>
-<div class="section group">
-	<div class="col span_1_of_2">
-    <%= link_to '戻る', book_pages_path(@book) %>
-	</div>
-	<div class="col span_1_of_2">
-		<%= prePage(@page.id) %>
-	 ページ番号：<%= @page.pagenumber %>
- 		<%= nextPage(@page.id) %>
-	</div>
+<br/>
+<div class="mui-row">
+  <div class="mui-col-md-4 mui--text-left" style="text-decoration:none;font-size:20px;">
+    <%= prePage(@page.id) %>
+  </div>
+  <div class="mui-col-md-4 mui--text-center" style="text-decoration:none;font-size:20px;">
+   ページ番号：<%= @page.pagenumber %>
+  </div>
+  <div class="mui-col-md-4 mui--text-right" style="text-decoration:none;font-size:20px;">
+    <%= nextPage(@page.id) %>
+  </div>
 </div>

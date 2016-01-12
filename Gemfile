@@ -37,3 +37,4 @@ end
 gem 'devise'
 gem 'carrierwave'
 gem 'best_in_place', '~> 3.0.1'
+gem 'kaminari'
