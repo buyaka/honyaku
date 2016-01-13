@@ -1,6 +1,9 @@
 <div class="mui-row">
-  <div class="mui-col-md-12">
+  <div class="mui-col-md-2">
     <h3>図書情報</h3>
+  </div>
+  <div class="mui-col-md-10">
+    <h3>ページ表</h3>
   </div>
 </div>
 <div class="mui-row">
@@ -8,22 +11,28 @@
     <%= image_tag(@book.cover, :width => 200, :height => 250) %></br>
     <b><%= @book.name %></b></br>
     <%= truncate(@book.description, length:100) %></br>
-    <%= link_to 'ページを追加', new_book_page_path(@book), :class => "mui-btn mui-btn--raised" %></br>
-    <%= link_to '一括で追加', multi_upload_path(@book), :class => "mui-btn mui-btn--raised" %></br>
-    <%= link_to '編集', edit_book_path(@book), :class => "mui-btn mui-btn--raised"  %></br>
-    <%= link_to '削除', book_path(@book), :class => "mui-btn mui-btn--raised", method: :delete, data: { confirm: 'Are you sure?' }  %>
-    <%= link_to '戻る', books_path, :class => "mui-btn mui-btn--raised"  %>
+    <%= link_to 'ページを追加', new_book_page_path(@book), :class => "mui-btn mui-btn--small" %></br>
+    <%= link_to '一括で追加', multi_upload_path(@book), :class => "mui-btn mui-btn--small" %></br>
+    <%= link_to '編集', edit_book_path(@book), :class => "mui-btn mui-btn--small"  %></br>
+    <%= link_to 'PDF', "#{@book.source}", :class => "mui-btn mui-btn--small"  %></br>
+    <%= link_to '削除', book_path(@book), :class => "mui-btn mui-btn--small", method: :delete, data: { confirm: 'Are you sure?' }  %>
+    <%= link_to '戻る', books_path, :class => "mui-btn mui-btn--small"  %>
   </div>
 
   <div class="mui-col-md-10">
-    <% @book.pages.each do |page| %>
+    <% @pages.each do |page| %>
       <div class="mui-col-md-2 mui--text-center">
         <div class="mui-panel">
+          <%= page.pagenumber %>
           <%= link_to image_tag(page.image, :width => 120, :height => 150), translate_path(@book,page) %>
-          <%= link_to '削除', book_page_path(@book,page), :class => "mui-btn mui-btn--raised", method: :delete, data: { confirm: 'Are you sure?' }  %>
-          <%= link_to '翻訳', translate_path(@book,page), :class => "mui-btn mui-btn--raised"  %>
+          <%= link_to '削除', book_page_path(@book,page), :class => "mui-btn mui-btn--small mui-btn--raised", method: :delete, data: { confirm: 'Are you sure?' }  %>
+          <%= link_to '翻訳', translate_path(@book,page), :class => "mui-btn mui-btn--small mui-btn--raised"  %>
         </div>
       </div>
     <% end %>
   </div>
+</div>
+
+<div class="mui-row mui--text-center" style="text-decoration:none;font-size:20px;">
+  <%= paginate @pages %>
 </div>

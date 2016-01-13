@@ -20,7 +20,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @pages = @book.pages
+    @pages = @book.pages.order("pagenumber asc").page params[:page]
   end
 
   # GET /books/new
