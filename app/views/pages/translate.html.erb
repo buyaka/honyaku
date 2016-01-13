@@ -10,7 +10,14 @@
     <%= image_tag(@page.image, :width => '100%', :height => '100%', :class => "mui--z2") %>
   </div>
   <div class="mui-col-md-7">
-    <%= best_in_place @page, :content, :path => book_page_path(@book, @page), :as => :textarea, :width => '100%', :height => '100%', :ok_button => '保存', :cancel_button => 'キャンセル'  %>
+    <%= best_in_place @page, :content,
+                              :path => book_page_path(@book, @page),
+                              :as => :textarea,
+                              #:html_attrs => { :cols => '100%', :rows => '100%' },
+                              :html_attrs => { :style => 'width:100%; height:100%;' },
+                              #:ok_button => '保存',
+                              #:cancel_button => 'キャンセル'
+                              :nil => "ここでクリックして翻訳して下さい。" %>
   </div>
 </div>
 <br/>
