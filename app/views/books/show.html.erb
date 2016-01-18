@@ -25,14 +25,14 @@
         <div class="mui-panel">
           <%= page.pagenumber %>
           <%= link_to image_tag(page.image, :width => 120, :height => 150), translate_path(@book,page) %>
-          <%= link_to '削除', book_page_path(@book,page), :class => "mui-btn mui-btn--small mui-btn--raised", method: :delete, data: { confirm: 'Are you sure?' }  %>
-          <%= link_to '翻訳', translate_path(@book,page), :class => "mui-btn mui-btn--small mui-btn--raised"  %>
+          <%= link_to '削除', book_page_path(@book,page), :class => "mui-btn mui-btn--small mui-btn--raised", :style => "padding: 0 10px;", method: :delete, data: { confirm: 'Are you sure?' }  %>
+          <%= link_to '翻訳', translate_path(@book,page), :class => "mui-btn mui-btn--small mui-btn--raised", :style => "padding: 0 10px;" %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
 
-<div class="mui-row mui--text-center" style="text-decoration:none;font-size:20px;">
+<div class="mui-row mui--text-center" style="text-decoration:none;font-size:20px;" >
   <%= paginate @pages %>
 </div>
