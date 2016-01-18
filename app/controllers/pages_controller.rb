@@ -49,7 +49,7 @@ class PagesController < ApplicationController
     respond_to do |format|
       if @page.update(page_params)
         format.html { redirect_to book_page_path(@book,@page), notice: 'Page was successfully updated.' }
-        format.json { render :show, status: :ok, location: book_page_path(@book,@page) }
+        format.json { render :show, status: :ok, notice: 'Successfully saved.', location: book_page_path(@book,@page) }
       else
         format.html { render :edit }
         format.json { render json: @page.errors, status: :unprocessable_entity }
